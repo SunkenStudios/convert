@@ -10,7 +10,7 @@
 
   <input id="file-input" type="file">
 
-  <div id="file-area" onclick="selectFile()">
+  <div id="file-area">
     <h2>Click to add your file</h2>
     <p id="drop-hint-text">or drag and drop it here</p>
   </div>
@@ -38,14 +38,14 @@
 
   </div>
 
-  <button id="convert-button" class="disabled" onclick="convertSelection()">Convert</button>
+  <button id="convert-button" class="disabled">Convert</button>
 
   <div id="popup-bg"></div>
   <div id="popup">
     <h2>Loading tools...</h2>
   </div>
 
-  <script type="module" src="main.js"></script>
+  <script type="module" src="src/main.ts"></script>
 
 </body>
 </html>
