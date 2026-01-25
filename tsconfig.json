@@ -25,9 +25,22 @@
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+    /**
+     * The TS transpilation of the qoi-fu dependency isn't compabile with
+     * our settings. They do provide a JS file, but tsc _really_ wants to
+     * import the TS file instead. We define a custom path to steer it
+     * away from the TS file.
+     */
+    "baseUrl": ".",
+    "paths": {
+      "qoi-fu": ["./src/handlers/qoi-fu/transpiled/QOI.js"]
+    }
   },
   "include": [
     "src"
+  ],
+  "exclude": [
+    "src/handlers/qoi-fu/**/*"
   ]
 }

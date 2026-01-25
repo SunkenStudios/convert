@@ -1,6 +1,6 @@
 import type { FileData, FileFormat, FormatHandler } from "../FormatHandler.ts";
 
-import { QOIDecoder, QOIEncoder } from "./qoi-fu/transpiled/QOI.ts";
+import { QOIDecoder, QOIEncoder } from "qoi-fu";
 
 class qoiFuHandler implements FormatHandler {
 

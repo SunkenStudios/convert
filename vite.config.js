@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 import { viteStaticCopy } from "vite-plugin-static-copy";
+import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
   optimizeDeps: {
@@ -20,6 +21,7 @@ export default defineConfig({
           dest: "wasm"
         }
       ]
-    })
+    }),
+    tsconfigPaths()
   ]
 });
