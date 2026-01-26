@@ -88,19 +88,22 @@ class canvasToBlobHandler implements FormatHandler {
       if (inputFormat.mime === "text/plain") {
 
         const font = "48px sans-serif";
+        const fontSize = parseInt(font);
         const string = new TextDecoder().decode(inputFile.bytes);
 
         this.#ctx.font = font;
         this.#canvas.width = this.#ctx.measureText(string).width;
-        this.#canvas.height = parseInt(font);
+        this.#canvas.height = fontSize;
 
         if (outputFormat.mime === "image/jpeg") {
           this.#ctx.fillStyle = "white";
           this.#ctx.fillRect(0, 0, this.#canvas.width, this.#canvas.height);
         }
         this.#ctx.fillStyle = "black";
+        this.#ctx.strokeStyle = "white";
         this.#ctx.font = font;
-        this.#ctx.fillText(string, 0, parseInt(font));
+        this.#ctx.fillText(string, 0, fontSize);
+        this.#ctx.strokeText(string, 0, fontSize);
 
       } else {
 
