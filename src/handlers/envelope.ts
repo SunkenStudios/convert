@@ -105,7 +105,10 @@ class envelopeHandler implements FormatHandler {
     const encoder = new TextEncoder();
 
     for (const inputFile of inputFiles) {
-      const bytes = encoder.encode(await parser(inputFile.bytes));
+      const html = `<div style="background: #fff">
+        ${await parser(inputFile.bytes)}
+      </div>`;
+      const bytes = encoder.encode(html);
       const baseName = inputFile.name.split(".")[0];
       const name = baseName + "." + outputFormat.extension;
       outputFiles.push({ bytes, name });
