@@ -77,7 +77,7 @@ class meydaHandler implements FormatHandler {
       extension: "flac",
       mime: "audio/flac",
       from: true,
-      to: false,
+      to: true,
       internal: "audio"
     });
     dummy.remove();
