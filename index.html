@@ -4,49 +4,56 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500&display=swap" rel="stylesheet">
   <title>Convert to it!</title>
 </head>
 <body>
+  <nav class="top-bar">
+    <div class="logo">Convert<span>Tool</span></div>
+    <button id="mode-button" class="secondary-button">Advanced mode</button>
+  </nav>
 
-  <input id="file-input" type="file">
-
-  <div id="file-area">
-    <h2>Click to add your file</h2>
-    <p id="drop-hint-text">or drag and drop it here</p>
-  </div>
-  <div id="side-panel">
-    <button id="mode-button">Advanced mode</button>
-  </div>
-
-  <div id="format-containers">
-
-    <div id="from-container" class="format-container">
-      <h2>Convert from:</h2>
-      <input type="text" id="search-from" class="search" placeholder="Search">
-      <div id="from-list" class="format-list">
-
-      </div>
+  <main class="container">
+    <div id="file-area" class="drop-zone">
+      <div class="upload-icon">↑</div>
+      <h2 id="file-display-name">Click to add your file</h2>
+      <p id="drop-hint-text">or drag and drop it here</p>
+      <input id="file-input" type="file">
     </div>
 
-    <div id="to-container" class="format-container">
-      <h2>Convert to:</h2>
-      <input type="text" id="search-to" class="search" placeholder="Search">
-      <div id="to-list" class="format-list">
+    <div class="converter-card">
+      <div id="format-containers">
+        <div class="dropdown-container">
+          <label>Convert from</label>
+          <div class="custom-dropdown">
+            <input type="text" id="search-from" class="search-input" placeholder="Search format...">
+            <div id="from-list" class="format-list"></div>
+          </div>
+        </div>
 
+        <div class="arrow-separator">→</div>
+
+        <div class="dropdown-container">
+          <label>Convert to</label>
+          <div class="custom-dropdown">
+            <input type="text" id="search-to" class="search-input" placeholder="Search format...">
+            <div id="to-list" class="format-list"></div>
+          </div>
+        </div>
       </div>
+
+      <button id="convert-button" class="primary-button disabled">Convert</button>
     </div>
-
-  </div>
-
-  <button id="convert-button" class="disabled">Convert</button>
+  </main>
 
   <div id="popup-bg"></div>
   <div id="popup">
-    <h2>Loading tools...</h2>
+    <div class="spinner"></div>
+    <div id="popup-content">
+      <h2>Loading tools...</h2>
+    </div>
   </div>
 
-  <script type="module" src="src/main.ts"></script>
-
+  <script type="module" src="dist/main.js"></script>
 </body>
 </html>
